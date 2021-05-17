@@ -174,7 +174,7 @@
                         <div class="
                             nhsd-t-col-xs-9 nhsd-t-col-s-10 nhsd-t-col-m-11 nhsd-t-col-l-8
     nhsd-!t-text-align-l-left">
-                            <h1 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6"
+                            <h1 class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6 guide-title"
                                 data-uipath="document.title">{{guide-title}}</h1>
                             <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary">This
                                 guidance
@@ -597,23 +597,25 @@
     <!-- Apply NHS-D skin to simplifier / bootstrap content -->
     <script>
         
-            $("main h1").addClass("nhsd-t-heading-l");
-            $("main h2").addClass("nhsd-t-heading-m");
-            $("main h3").addClass("nhsd-t-heading-s");
-            $("main h4").addClass("nhsd-t-heading-xs");
+            $("main h1:not(.guide-title)").addClass("nhsd-t-heading-xl");
+            $("main h2").addClass("nhsd-t-heading-l");
+            $("main h3").addClass("nhsd-t-heading-m");
+            $("main h4").addClass("nhsd-t-heading-s");
+            $("main h5").addClass("nhsd-t-heading-xs");
             $("main table").not(".treetable").removeClass("regular").wrap("<div class=\"nhsd-m-table\"></div>");
+            $("main table:not(.treetable) td").addClass("nhsd-t-body");
             $("main a:not([role='tab'], .nhsd-a-button, pre a), footer a").addClass("nhsd-a-link");
             $("main pre").addClass("nhsd-o-code-viewer");
             $(".resource-validation-xml>pre").unwrap();
             // $("main code").addClass("nhsd-a-text-highlight--code"); // not sure about this
-            $("hr").addClass("nhsd-a-horizontal-rule nhsd-!t-margin-bottom-6");
+            $("main hr").addClass("nhsd-a-horizontal-rule nhsd-!t-margin-bottom-6");
             $("p").addClass("nhsd-t-body");
             $("blockquote").each(function(e) {
                 var element = this;
                 var blockquote = $(element).html();
                 var text = $(blockquote).text();
 
-                $(element).html("<div class=\"nhsd-m-quote nhsd-!t-margin-bottom-3\"><div class=\"nhsd-a-box nhsd-a-box--bg-light-grey\"><figure><blockquote><span class=\"nhsd-a-icon nhsd-a-icon--size-xl nhsd-a-icon--col-blue\"><svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 16 16\"  width=\"100%\" height=\"100%\"><path d=\"M7.5,16H0V7.5c0-4.4,3.3-6.4,6.4-6.4v3.2c-0.8,0-3.2,0.2-3.2,3.2v1.1h4.3C7.5,8.5,7.5,16,7.5,16z M16,16H8.5V7.5 c0-4.4,3.3-6.4,6.4-6.4v3.2c-0.8,0-3.2,0.2-3.2,3.2v1.1H16V16z\"/></svg></span>"+text+"</blockquote></figure></div></div>");
+                $(element).html("<div class=\"nhsd-m-quote nhsd-!t-margin-bottom-3 nhsd-t-body\"><div class=\"nhsd-a-box nhsd-a-box--bg-light-grey\"><figure><blockquote><span class=\"nhsd-a-icon nhsd-a-icon--size-xl nhsd-a-icon--col-blue\"><svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 16 16\"  width=\"100%\" height=\"100%\"><path d=\"M7.5,16H0V7.5c0-4.4,3.3-6.4,6.4-6.4v3.2c-0.8,0-3.2,0.2-3.2,3.2v1.1h4.3C7.5,8.5,7.5,16,7.5,16z M16,16H8.5V7.5 c0-4.4,3.3-6.4,6.4-6.4v3.2c-0.8,0-3.2,0.2-3.2,3.2v1.1H16V16z\"/></svg></span>"+text+"</blockquote></figure></div></div>");
             });
 
             // Main navigation
